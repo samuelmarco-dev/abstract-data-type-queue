@@ -4,13 +4,13 @@
 
 /*
 Conceito de fila:
-    O primeiro a entrar � o primeiro a sair
-    O �ltimo a entrar � o �ltimo a sair
+    O primeiro a entrar é o primeiro a sair
+    O último a entrar é o último a sair
 
-Fila din�mica:
-    O �ltimo a entrar vai aponta para nulo
-    E todos os seguintes, v�o receber a refer�ncia anterior
-    de tail e tail receber� o n�
+Fila dinâmica:
+    O último a entrar vai aponta para nulo
+    E todos os seguintes, vão receber a referência anterior
+    de tail e tail receberá o nó
 */
 
 typedef struct nodeitem {
@@ -57,7 +57,7 @@ queue *newQueue() {
 }
 
 node *newNode(int value) {
-    node *n = (node *)malloc(sizeof(node));
+    node *n = (node *) malloc(sizeof(node));
     n->information = value;
     n->next = NULL;
 
@@ -65,12 +65,12 @@ node *newNode(int value) {
 }
 
 /*
-    1. Criar o novo n� com a informa��o que desejamos inserir na fila
-    Se a fila est� vazia:
-        2. Precisamos atualizar head e tail para receber o novo n� instanciado
-    Se a fila n�o est� vazia:
-        2. Precisamos atualizar apenas tail, dessa forma o n� atual para qual tail aponta
-        em next passa a apontar para o novo n� e tail aponta para o novo n� instanciado
+    1. Criar o novo nó com a informação que desejamos inserir na fila
+    Se a fila está vazia:
+        2. Precisamos atualizar head e tail para receber o novo nó instanciado
+    Se a fila não está vazia:
+        2. Precisamos atualizar apenas tail, dessa forma o nó atual para qual tail aponta
+        em next passa a apontar para o novo nó e tail aponta para o novo nó instanciado
 */
 void enqueue(queue *q, int information) {
     node *n = newNode(information);
@@ -86,11 +86,11 @@ void enqueue(queue *q, int information) {
 }
 
 /*
-    1. Instancia uma estrutura para guardar o n� atual e dessa forma alterar head
-    2. Armazenar o n� de head e retornar o campo information
-    3. Como o n� armazenado ser� exclu�do, ent�o a nova refer�ncia para head ser� o
-    campo next do n� que ser� exclu�do
-    4. Ap�s liberar a refer�ncia do n� que ser� exclu�do, podemos liberar a mem�ria
+    1. Instancia uma estrutura para guardar o nó atual e dessa forma alterar head
+    2. Armazenar o nó de head e retornar o campo information
+    3. Como o nó armazenado será excluído, então a nova referência para head será o
+    campo next do nó que será excluído
+    4. Após liberar a referência do nó que será excluído, podemos liberar a memória
 */
 int dequeue(queue *q) {
     node *n;
